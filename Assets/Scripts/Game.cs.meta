@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2bd632e0a2cbfd24a804651f0ba40f89
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - coinPrefab: {fileID: 6647190722929120829, guid: d0de1bb61c8375f41853920117dbbbd7,
+      type: 3}
+  - inimigoPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
