@@ -108,24 +108,20 @@ public class Player : MonoBehaviour
         charController.Move(velocity * Time.deltaTime);
 
         speed = new Vector2(charController.velocity.x, charController.velocity.z).magnitude;
-        
-        if(charController.isGrounded)
+
+        Jump();
+
+        if (charController.isGrounded)
         {
             velocityY = 0;
-        }
-
-        {
-
-            float animationSpeedPercent = ((running) ? speed / runSpeed : speed / walkSpeed * 0.5f) * inputDir.magnitude;
-
-            animator.SetFloat("speedPercent", animationSpeedPercent, smoothSpeedTime, Time.deltaTime);
-            animator.SetBool("isGrounded", charController.isGrounded);
-            animator.SetFloat("velocityY", velocityY);
-            animator.SetBool("spaceDown", Input.GetKeyDown(KeyCode.Space));
-
+            
         }
 
         Jump();
+
+        
+
+        
         
        
 
@@ -136,16 +132,15 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            
 
             if (charController.isGrounded)
             {
-                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Base Animation"))
-                {
-                    animator.Play("JumpUp");
-                }
+                
+
                 float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
                 velocityY = jumpVelocity;
+                
             }
 
         }
@@ -177,7 +172,7 @@ public class Player : MonoBehaviour
         if (other.transform.CompareTag("Coin"))
         {
             //chamamos função do game para atualizar a lista de coins
-            game_ref.RemoveCoinFromList(other.gameObject);
+            //game_ref.RemoveCoinFromList(other.gameObject);
 
             GameObject.Destroy(other.gameObject);
             coinCount++;
